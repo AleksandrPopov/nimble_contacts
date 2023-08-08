@@ -1,11 +1,7 @@
-from db import DB
+from api import app
+from config import HOST, PORT
 from schedulers import run_schedules
-from utils import parse_contacts_data
 
-db = DB()
-
-run_schedules()
-
-while True:
-    get_contacts = db.search_contacts(input())
-    print(parse_contacts_data(get_contacts))
+if __name__ == '__main__':
+    app.run(host=HOST, port=PORT)
+    run_schedules()

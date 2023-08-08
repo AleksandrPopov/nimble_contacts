@@ -1,5 +1,8 @@
 import os
 
+HOST = os.getenv('HOST')
+PORT = os.getenv('PORT')
+
 URL = os.getenv('URL')
 TOKEN = os.getenv('TOKEN')
 

@@ -46,7 +46,7 @@ class DB:
 
         return count
 
-    def search_contacts(self, substring: str) -> list:
+    def search_contacts(self, contact_name: str) -> list:
         """
         Search contacts in db on query
         :return list searched contacts
@@ -54,9 +54,11 @@ class DB:
         with self.__connect_db() as db:
             cursor = db.cursor()
             query = (
-                "SELECT * FROM contacts "
-                "WHERE to_tsvector(first_name) || to_tsvector(last_name) @@ to_tsquery(%s)"
+                "SELECT to_json(services_data) "
+                "FROM(SELECT first_name, last_name, email "
+                "FROM contacts "
+                "WHERE to_tsvector(first_name) || to_tsvector(last_name) @@ to_tsquery(%s)) services_data"
             )
-            cursor.execute(query, (substring,))
+            cursor.execute(query, (contact_name,))
 
             return cursor.fetchall()
