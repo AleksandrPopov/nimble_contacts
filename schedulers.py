@@ -2,7 +2,7 @@ import threading
 
 
 from db import DB
-from nimble import get_contact
+from nimble import get_nimble_contacts
 
 
 def update_contacts_schedule():
@@ -10,7 +10,7 @@ def update_contacts_schedule():
 
     db = DB()
     while True:
-        print('Add', db.add_contacts(get_contact()), 'contacts.')
+        print('Add', db.add_contacts(get_nimble_contacts()), 'contacts.')
         threading.Event().wait(86400)
 
 

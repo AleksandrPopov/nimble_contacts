@@ -1,10 +1,10 @@
 import os
 
-HOST = os.getenv('HOST')
-PORT = os.getenv('PORT')
+SERVER_HOST = os.getenv('HOST')
+SERVER_PORT = os.getenv('PORT')
 
-URL = os.getenv('URL')
-TOKEN = os.getenv('TOKEN')
+NIMBLE_API_URL = os.getenv('URL')
+NIMBLE_TOKEN = os.getenv('TOKEN')
 
 HOST_DB = os.getenv('HOST_DB')
 PORT_DB = os.getenv('PORT_DB')

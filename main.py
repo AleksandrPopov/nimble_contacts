@@ -1,7 +1,7 @@
 from api import app
-from config import HOST, PORT
+from config import SERVER_HOST, SERVER_PORT
 from schedulers import run_schedules
 
 if __name__ == '__main__':
-    app.run(host=HOST, port=PORT)
+    app.run(host=SERVER_HOST, port=SERVER_PORT)
     run_schedules()
